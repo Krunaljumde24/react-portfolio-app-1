@@ -14,7 +14,7 @@ import education from "../assets/education.png";
 
 function Experience() {
   return (
-    <div className="w-full experience">
+    <div className="w-full bg-white dark:bg-[#ffe4ba] experience">
       <div className="w-4/5 mx-auto py-10 ">
         <h2 className="text-3xl font-bold text-center pb-10">
           Work Experience & Education
@@ -26,10 +26,7 @@ function Experience() {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <div
-                className="h-fit rounded-sm p-3 shadow-lg"
-                style={{ backgroundColor: "#ffe4ba" }}
-              >
+              <div className="h-fit rounded-sm p-3 shadow-lg bg-[#ffe4ba] dark:bg-white">
                 <div className="flex flex-row">
                   <div className="basis mr-2">
                     <img src={tcsLogo} alt="tcs-logo" className="w-10 flex" />
@@ -45,15 +42,26 @@ function Experience() {
 
                 <ul className="text-[14px] ml-10 list-disc ">
                   <li>
-                    Led development of 3 major web applications serving 10k+
-                    users
+                    Designed and developed RESTful APIs and backend services
+                    using Spring Boot for enterprise applications.
                   </li>
                   <li>
-                    Implemented microservices architecture reducing load time by
-                    40%
+                    Led the development and integration of orchestration
+                    services.
                   </li>
                   <li>
-                    Mentored 5 junior developers and conducted code reviews
+                    Developed integration services for seamless data exchange
+                    between internal and external systems.
+                  </li>
+                  <li>
+                    Built batch applications for bulk data processing, achieving
+                    improvement in system performance and reducing processing
+                    time by several hours per cycle for high-volume tasks.
+                  </li>
+                  <li>
+                    Collaborated with cross-functional teams including frontend,
+                    database, middleware, DevOps, UNIX, and networking groups to
+                    deliver complex projects.
                   </li>
                 </ul>
               </div>
@@ -65,10 +73,7 @@ function Experience() {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <div
-                className="h-fit rounded-sm p-3 shadow-lg text-right"
-                style={{ backgroundColor: "#ffe4ba" }}
-              >
+              <div className="h-fit rounded-sm p-3 shadow-lg text-right bg-[#ffe4ba] dark:bg-white">
                 <div className="">
                   <div className="basis">
                     <h5 className="font-extrabold">

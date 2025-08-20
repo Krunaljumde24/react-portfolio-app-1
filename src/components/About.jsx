@@ -19,7 +19,7 @@ function About() {
           </p>
 
           <button
-            className="px-2 py-2 mx-2 rounded font-bold"
+            className="px-2 py-2 mx-2 rounded font-bold hover:bg-amber-600"
             style={{ backgroundColor: "#ffcb77" }}
           >
             Download Resume
