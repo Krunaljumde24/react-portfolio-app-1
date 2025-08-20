@@ -1,7 +1,15 @@
 import React from "react";
 import img from "../assets/Monu-2.png";
+import resume from "../assets/krunal-jumde-resume-1.pdf";
 
 function About() {
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = resume;
+    link.download = "krunal-jumde-resume.pdf";
+    link.click();
+  };
+
   return (
     <div className="w-full about dark:bg-gray-800">
       <div className="w-4/5 mx-auto py-10 flex flex-row">
@@ -9,7 +17,9 @@ function About() {
           <h3 className="text-5xl font-extrabold my-2 py-2 dark:text-white">
             Hi, I'm <p className="text-amber-600">Krunal Jumde</p>
           </h3>
-          <h4 className="text-2xl my-2 py-2 dark:text-white">Full Stack Developer</h4>
+          <h4 className="text-2xl my-2 py-2 dark:text-white">
+            Full Stack Developer
+          </h4>
           <p className="font-mono my-2 py-2 dark:text-white">
             I’m a passionate Full Stack Developer with expertise in Java, Spring
             Boot, MySQL, and modern frontend technologies like React,
@@ -19,15 +29,13 @@ function About() {
           </p>
 
           <button
-            className="px-2 py-2 mx-2 rounded font-bold hover:bg-amber-600"
-            style={{ backgroundColor: "#ffcb77" }}
+            className="px-2 py-2 mx-2 rounded font-bold bg-[#ffcb77] hover:bg-amber-400 hover:cursor-pointer"
+            type="button"
+            onClick={downloadResume}
           >
             Download Resume
           </button>
-          <button
-            className="px-2 py-2 mx-2 rounded font-bold"
-            style={{ backgroundColor: "#ffcb77" }}
-          >
+          <button className="px-2 py-2 mx-2 rounded font-bold bg-[#ffcb77] hover:bg-amber-400 hover:cursor-pointer">
             Contact Me
           </button>
         </div>
