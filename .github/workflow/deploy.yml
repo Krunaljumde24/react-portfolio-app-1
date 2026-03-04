@@ -1,0 +1,40 @@
+name: Deploy Portfolio React App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Copy Files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.VPS_USER}}
+          key: ${{secrets.SSH_KEY}}
+          passphrase: ${{secrets.VPS_SSH_PASSPHRASE}}
+          script: |
+            cd /app/project/react-portfolio-app-1
+            git pull origin main
+            npm install
+            npm run build
+            sudo cp -r dist/* /var/www/react-portfolio-app/
+            sudo systemctl reload nginx
