@@ -75,8 +75,8 @@ function Skills() {
   ]);
 
   return (
-    <div className="w-full bg-orange-200 dark:bg-emerald-950">
-      <div className="w-4/5 mx-auto py-10">
+    <div id="skills" className="w-full bg-orange-200 dark:bg-emerald-950">
+      <div className="w-4/5 mx-auto py-20">
         <h2 className="text-3xl font-bold text-center pb-10 dark:text-white">
           Skills
         </h2>

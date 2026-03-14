@@ -1,17 +1,28 @@
 import React from "react";
 import img from "../assets/Monu-2.png";
-import resume from "../assets/krunal-jumde-resume-1.pdf";
+import resume from "../assets/krunal-jumde-resume-7-fs.pdf";
 
 function About() {
-  const downloadResume = () => {
+  const downloadResume = async () => {
+    // const url =
+    //   "https://devspace-bucket-1.s3.ap-south-2.amazonaws.com/resume/krunal-jumde-resume-7-fs.pdf";
+    // const resp = await fetch(url);
+    // const blob = await resp.blob();
+    // const blobUrl = window.URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = resume;
-    link.download = "krunal-jumde-resume.pdf";
+    link.download = "krunal-jumde-resume-7-fs.pdf";
     link.click();
   };
 
+  const goToContactMe = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("contact");
+    el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="w-full about dark:bg-gray-800">
+    <div id="about" className="w-full about dark:bg-gray-800">
       <div className="w-4/5 mx-auto py-10 flex flex-row">
         <div className="basis-1/2 p-10">
           <h3 className="text-5xl font-extrabold my-2 py-2 dark:text-white">
@@ -35,7 +46,10 @@ function About() {
           >
             Download Resume
           </button>
-          <button className="px-2 py-2 mx-2 rounded font-bold bg-[#ffcb77] hover:bg-amber-400 hover:cursor-pointer">
+          <button
+            className="px-2 py-2 mx-2 rounded font-bold bg-[#ffcb77] hover:bg-amber-400 hover:cursor-pointer"
+            onClick={(e) => goToContactMe(e)}
+          >
             Contact Me
           </button>
         </div>

@@ -14,7 +14,10 @@ import education from "../assets/education.png";
 
 function Experience() {
   return (
-    <div className="w-full bg-white dark:bg-[#ffe4ba] experience">
+    <div
+      id="experience"
+      className="w-full bg-white dark:bg-[#ffe4ba] experience py-10"
+    >
       <div className="w-4/5 mx-auto py-10 ">
         <h2 className="text-3xl font-bold text-center pb-10">
           Work Experience & Education

@@ -29,11 +29,12 @@ function Projects() {
     },
   ]);
   return (
-    <div className="w-full bg-[#fff8f0] py-10 projects">
+    <div id="projects" className="w-full bg-[#fff8f0]projects py-10">
       <h2 className="text-3xl font-bold text-center">Projects</h2>
       <div className="flex justify-center gap-4 flex-wrap mx-auto py-10">
-        {projects.map((obj) => (
+        {projects.map((obj, id) => (
           <ProjectCard
+            key={id}
             imgUrl={obj.imgUrl}
             projectName={obj.name}
             appUrl={obj.appUrl}

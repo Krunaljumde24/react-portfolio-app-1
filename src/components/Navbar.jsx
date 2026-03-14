@@ -6,20 +6,23 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-
-const navigation = [
-  { name: "About", href: "#", current: true },
-  { name: "Experience", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Skills", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
-];
+import { href } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState("about");
+
+  const [navigation, setNavigation] = useState([
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ]);
+
   const [darkMode, setDarkMode] = useState(false);
   const toggleTheme = (value) => {
     setDarkMode(value);
@@ -30,8 +33,17 @@ export default function Navbar() {
     }
   };
 
+  const handleNavItemClick = (href) => {
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <Disclosure as="nav" className="bg-teal-800 dark:bg-orange-50">
+    <Disclosure
+      as="nav"
+      className="bg-teal-800 dark:bg-orange-50 fixed top-0 left-0 right-0 z-100"
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -59,16 +71,21 @@ export default function Navbar() {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
+                {navigation.map((item, id) => (
                   <a
                     key={item.name}
                     href={item.href}
                     aria-current={item.current ? "page" : undefined}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavItemClick(item.href);
+                      setActiveSection(item.href.slice(1));
+                    }}
                     className={classNames(
-                      item.current
-                        ? "bg-white text-grey-900"
+                      item.href.slice(1) === activeSection
+                        ? "bg-white dark:bg-amber-300 text-grey-900"
                         : "text-white hover:bg-amber-100 hover:text-black",
-                      "rounded-md px-3 py-2 text-sm font-medium dark:text-gray-900"
+                      "rounded-md px-3 py-2 text-sm font-medium dark:text-black ",
                     )}
                   >
                     {item.name}
@@ -105,7 +122,7 @@ export default function Navbar() {
                 item.current
                   ? "bg-gray-900 text-white"
                   : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "block rounded-md px-3 py-2 text-base font-medium"
+                "block rounded-md px-3 py-2 text-base font-medium",
               )}
             >
               {item.name}

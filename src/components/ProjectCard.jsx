@@ -1,7 +1,6 @@
 import React from "react";
 
 function ProjectCard({ imgUrl, projectName, appUrl }) {
-  console.log(projectName + " : " + appUrl);
   return (
     <div
       className="max-w-xs bg-[white] border border-gray-200 rounded-lg shadow-sm
@@ -44,14 +43,14 @@ function ProjectCard({ imgUrl, projectName, appUrl }) {
         </a>
         {/* {console.log(appUrl === "Customer Portal")} */}
         {appUrl != "#" ? (
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-            <span class="text-sm font-medium">Live</span>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+            <span className="text-sm font-medium">Live</span>
           </div>
         ) : (
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-            <span class="text-sm font-medium">Not Live</span>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+            <span className="text-sm font-medium">Not Live</span>
           </div>
         )}
       </div>
